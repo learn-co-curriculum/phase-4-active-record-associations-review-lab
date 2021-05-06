@@ -1,6 +1,6 @@
 # Active Record Associations Review Lab
 
-## Learning Goals
+## Learning Goals!
 
 - Create one-to-many and many-to-many associations
 - Use `has_many` and `belongs_to` Active Record macros
