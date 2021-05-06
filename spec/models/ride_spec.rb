@@ -1,21 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Ride, type: :model do
-  let(:ride) { subject }
+  let(:taxi) { Taxi.create }
+  let(:passenger) { Passenger.create }
 
   it 'belongs to a passenger' do
-    passenger = Passenger.create
-    ride.passenger = passenger
-    ride.save
+    ride = Ride.create(passenger_id: passenger.id, taxi_id: taxi.id)
 
-    expect(passenger.rides).to include(ride)
+    expect(ride.passenger).to eq(passenger)
   end
 
   it 'belongs to a taxi' do
-    taxi = Taxi.create
-    ride.taxi = taxi
-    ride.save
+    ride = Ride.create(passenger_id: passenger.id, taxi_id: taxi.id)
 
-    expect(taxi.rides).to include(ride)
+    expect(ride.taxi).to eq(taxi)
   end
 end
